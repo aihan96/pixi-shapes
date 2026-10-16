@@ -1,6 +1,4 @@
+import "./style.css";
+import { App } from "./App";
 
-
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <h1>Hello Vite!</h1>
-`
-
+new App().init(document.getElementById("game")!).catch(console.error);
