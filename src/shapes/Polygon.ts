@@ -1,29 +1,11 @@
 import { Shape } from "./Shape";
+import { regularPolygon } from "./geometry";
+
+const SIDES = { triangle: 3, square: 4, pentagon: 5, hexagon: 6 } as const;
+export type PolygonKind = keyof typeof SIDES;
 
 export class Polygon extends Shape {
-  private readonly sides: number;
-  private readonly size: number;
-
-  constructor(sides: number, size: number, color: number) {
-    super();
-    this.sides = sides;
-    this.size = size;
-
-    const points: number[] = [];
-    for (let i = 0; i < sides; i++) {
-      const angle = (i / sides) * Math.PI * 2 - Math.PI / 2;
-      points.push(Math.cos(angle) * size, Math.sin(angle) * size);
-    }
-    this.poly(points).fill(color);
-  }
-
-  public get radius(): number {
-    return this.size;
-  }
-
-  public get surfaceArea(): number {
-    return (
-      0.5 * this.sides * this.size ** 2 * Math.sin((Math.PI * 2) / this.sides)
-    );
+  constructor(kind: PolygonKind) {
+    super(kind, regularPolygon(SIDES[kind]));
   }
 }

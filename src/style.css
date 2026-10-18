@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #11111b;
+  font-family: system-ui, sans-serif;
+  overscroll-behavior: none;
+}
+
+#app {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  place-items: center;
+  padding: 12px;
+}
+
+#game {
+  position: relative;
+  width:80%;
+  aspect-ratio: 3 / 2;
+  border: 2px solid #cdd6f4;
+  border-radius: 6px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+#game canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.hud {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 8px;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hud-item {
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(17, 17, 27, 0.75);
+  color: #cdd6f4;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums; /* prevents jitter/flicker */
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .hud {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+.controls {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.controls-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(17, 17, 27, 0.75);
+  color: #cdd6f4;
+  font-size: 0.85rem;
+  pointer-events: auto;
+}
+
+.controls-value {
+  min-width: 3ch;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #585b70;
+  border-radius: 6px;
+  background: #313244;
+  color: #cdd6f4;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.controls-btn:hover {
+  background: #45475a;
+}
+.controls-btn:active {
+  background: #585b70;
+}
+.controls-btn:focus-visible {
+  outline: 2px solid #89b4fa;
+  outline-offset: 2px;
+}
