@@ -22,7 +22,7 @@ body {
 
 #game {
   position: relative;
-  width:80%;
+  width: 80%;
   aspect-ratio: 3 / 2;
   border: 2px solid #cdd6f4;
   border-radius: 6px;
@@ -37,6 +37,7 @@ body {
 }
 
 .hud {
+  color: #ffffff;
   position: absolute;
   top: 8px;
   left: 8px;
